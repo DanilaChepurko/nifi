@@ -1,0 +1,14 @@
+{
+  "Форма сбора данных Мероприятия": {
+    "startRow": 10,
+    "projectStepColumn":"D",
+    "nameColumn": "C",
+    "numberEventColumn":"G",
+    "shortNameColumn": "H",
+    "typeEventColumn":"K",
+    "lvlEventColumn": "N",
+    "prioritizationGroupColumn":"Q"
+
+
+  }
+}

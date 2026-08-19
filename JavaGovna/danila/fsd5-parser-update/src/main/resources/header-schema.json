@@ -1,0 +1,38 @@
+{
+  "Форма сбора данных (ФСД) 5: Приросты максимальной добычи.": {
+    "version": "C5",
+    "scenario": "C4",
+    "horizon": "C9",
+    "field": "C7",
+    "year": "C3",
+    "ba":"C6",
+    "fluidType": "C10",
+    "author": "E4",
+    "fillInDate": "E3",
+    "syncScenario": "C11",
+    "syncVersion": "C12",
+    "syncComparedScenario": "C13",
+    "syncComparedVersion": "C14",
+    "lastRow": 14,
+    "dopScenario": "Приросты максимальной добычи"
+  },
+  
+  "Форма сбора данных (ФСД) 5: Эффекты.": {
+    "version": "C5",
+    "scenario": "C4",
+    "horizon": "C9",
+    "field": "C7",
+    "year": "C3",
+    "ba":"C6",
+    "fluidType": "C10",
+    "author": "E4",
+    "fillInDate": "E3",
+    "syncScenario": "C11",
+    "syncVersion": "C12",
+    "syncComparedScenario": "C13",
+    "syncComparedVersion": "C14",
+    "lastRow": 14,
+    "dopScenario": "Эффекты"
+
+  }  
+}

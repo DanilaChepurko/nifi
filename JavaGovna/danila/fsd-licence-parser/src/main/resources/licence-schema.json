@@ -1,0 +1,22 @@
+{
+  "Форма сбора данных Лицензия": {
+    "headerStartRow": 4,
+    "tableStartRow": 9,
+    "field":"B6",
+    "ba": "B5",
+    
+    "horizonColumn":"A",
+    "poolColumn":"B",
+    "licenceCodeColumn":"C",
+    "licenceYearColumn": "D",
+    "devStartYearColumn": "E",
+    "turon1PctYearColumn": "F",
+    "oilLicenseYearColumn": "G",
+    "oilGeoLicenseYearColumn": "H",
+    "oil1PctYearColumn": "I",
+    "oilRecovery2011Column": "J",
+    "oilKkanLimitColumn": "K",
+    "oilKkanLastYearColumn": "L",
+    "subsoilAreaUuidColumn": "M"
+  }
+}

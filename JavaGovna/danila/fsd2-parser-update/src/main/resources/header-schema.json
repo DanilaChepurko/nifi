@@ -1,0 +1,29 @@
+{
+  "Форма сбора данных (ФСД) 2: Проектные уровни добычи, Эксплуатационный объект": {
+    "modelDate": "C3",
+    "scenario": "C4",
+    "version": "C5",
+    "developmentMethod": "C6",
+    "pool": "C11",
+    "businessAssociate": "C21",
+    "lastRow": 21
+  },
+  "Форма сбора данных (ФСД) 2: Проектные уровни добычи в разрезе УППГ / УКПГ / УПН / УКПН": {
+    "modelDate": "C3",
+    "scenario": "C4",
+    "version": "C5",
+    "developmentMethod": "C6",
+    "facility": "C9",
+    "businessAssociate": "C17",
+    "lastRow": 17
+  },
+  "Форма сбора данных (ФСД) 2: Проектные уровни добычи, Горизонт": {
+    "modelDate": "C3",
+    "scenario": "C4",
+    "version": "C5",
+    "developmentMethod": "C6",
+    "horizon": "C10",
+    "businessAssociate": "C20",
+    "lastRow": 20
+  }
+}

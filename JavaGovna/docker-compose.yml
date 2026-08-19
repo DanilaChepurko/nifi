@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  maven-build:
+    image: maven:3.8.3-openjdk-11
+    command: bash -c "cd /usr/danila && mvn clean install  -B "
+    volumes:
+      - ./danila:/usr/danila
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+      TESTCONTAINERS_ENABLED: "false"
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  
+  postgres-13-alpine:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5411:5432"
+  

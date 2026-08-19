@@ -1,0 +1,10 @@
+{
+  "Форма сбора данных НСИ. Площадки": {
+    "startRow": 7,
+    "field": "C4",
+    "horizonColumn": "B",
+    "horizonAreaColumn": "C",
+    "nameColumn": "D",
+    "dkcColumn": "E"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Форма сбора данных Оборудование": {
+    "year": "C3",
+    "businessAssociate": "C4",
+    "field": "C5",
+    "version": "C6",
+    "dateOfRelevance": "C7",
+    "lastRow": 7,
+    "fsdSource": "Форма сбора данных Оборудование"
+  }
+}

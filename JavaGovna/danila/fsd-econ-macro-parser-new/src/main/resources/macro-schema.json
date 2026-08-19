@@ -1,0 +1,8 @@
+{
+  "Форма сбора данных (ФСД): Макроокружение": {
+    "startRow": 7,
+    "analyticColumn": "B",
+    "measureColumn": "C",
+    "valueColumn": "D"
+  }
+}

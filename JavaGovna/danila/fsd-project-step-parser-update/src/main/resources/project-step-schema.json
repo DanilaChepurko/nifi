@@ -1,0 +1,12 @@
+{
+  "Форма сбора данных Мероприятия": {
+    "startRow": 8,
+    "nameColumn": "C",
+    "typeColumn": "G",
+    "horizonColumn": "F",
+    "projectNameColumn": "E",
+    "codeColumn": "D",
+    "businessAssociate": "C5",
+    "equipmentNameColumn": "H"
+  }
+}

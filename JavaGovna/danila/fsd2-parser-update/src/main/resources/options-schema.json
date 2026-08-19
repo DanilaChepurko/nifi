@@ -1,0 +1,32 @@
+{
+  "Форма сбора данных (ФСД) 2: Проектные уровни добычи, Эксплуатационный объект": {
+    "startRow": 24,
+    "projectStepColumn": "C",
+    "projectEquipmentColomn": "D",
+    "edIzmerColumn": "E",
+    "projectVolumeColumn": "F",
+    "periodType": "G",
+    "startDateColumn": "H",
+    "comentColomn": "I"
+  },
+  "Форма сбора данных (ФСД) 2: Проектные уровни добычи в разрезе УППГ / УКПГ / УПН / УКПН": {
+    "startRow": 20,
+    "projectStepColumn": "C",
+    "projectEquipmentColomn": "D",
+    "edIzmerColumn": "E",
+    "projectVolumeColumn": "F",
+    "periodType": "G",
+    "startDateColumn": "H",
+    "comentColomn": "I"
+  },
+  "Форма сбора данных (ФСД) 2: Проектные уровни добычи, Горизонт": {
+    "startRow": 23,
+    "projectStepColumn": "C",
+    "projectEquipmentColomn": "D",
+    "edIzmerColumn": "E",
+    "projectVolumeColumn": "F",
+    "periodType": "G",
+    "startDateColumn": "H",
+    "comentColomn": "I"
+  }
+}

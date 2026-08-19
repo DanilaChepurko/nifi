@@ -1,0 +1,14 @@
+{
+  "Форма сбора данных НСИ. Месторождения": {
+    "startRow": 7,
+    "nameColumn": "B",
+    "areaColumn": "C",
+    "typeColumn": "D",
+    "yearOpenColumn": "E",
+    "licenseColumn": "F",
+    "esgColumn": "G",
+    "businessAssociate": "C4",
+    "producSaleColumn": "H"
+
+  }
+}

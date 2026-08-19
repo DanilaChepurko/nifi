@@ -1,0 +1,10 @@
+{
+  "Форма сбора данных Вид флюида": {
+    "headerStartRow": 4,
+    "tableStartRow": 9,
+    "horizonColumn": "A",
+    "fluidTypeColumn": "B",
+    "field":"B6",
+    "ba": "B5"
+  }
+}

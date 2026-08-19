@@ -1,0 +1,16 @@
+{
+  "ФСД-2.ИП": {
+    "startRow": 5,
+    "fieldColumn":"D",
+    "horizonColumn": "E",
+    "horizonAreaColumn":"F",
+    "sourceIp": "C2",
+    "constructionNamberColumn":"B",
+    "constructionCodColumn": "C",
+    "equipmentNameColumn":"I" ,
+    "volumeEquipmentColumn": "J",
+    "volumeUnitColumn":"K",
+    "startYearAssociate": "M",
+    "startQuarterColumn":"L"
+  }
+}

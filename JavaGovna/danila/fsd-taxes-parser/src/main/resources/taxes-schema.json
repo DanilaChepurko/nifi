@@ -1,0 +1,21 @@
+{
+  "Форма сбора данных (ФСД): Федеральные налоги": {
+    "startRow": 7,
+    "analyticColumn": "B",
+    "multiindexHeadRow":[10,14],
+    "multiindexBodyRows":[[11,13], [15,16]],
+    "measureColumn": "C",
+    "valueColumn": "D"
+
+  },
+  "Форма сбора данных (ФСД): НДПИ": {
+    "startRow": 7,
+    "analyticColumn": "B",
+    "multiindexHeadRow":[7,20],
+    "multiindexBodyRows":[[8,19], [21,32]],
+    "year": "C",
+    "valueColumn": "D",
+    "startRow2": 3,
+    "valueColumn2": "C"
+  }
+}

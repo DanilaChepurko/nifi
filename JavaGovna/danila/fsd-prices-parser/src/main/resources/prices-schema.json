@@ -1,0 +1,8 @@
+{
+  "Форма сбора данных (ФСД): Цены": {
+    "startRow": 9,
+    "analyticColumn": "B",
+    "measureColumn": "C",
+    "valueColumn": "D"
+  }
+}

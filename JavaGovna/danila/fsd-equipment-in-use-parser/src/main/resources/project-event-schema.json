@@ -1,0 +1,13 @@
+{
+  "Форма сбора данных Оборудование": {
+    "startRow": 10,
+    "projectEventColumn":"L",
+    "projectEquipmentColumn": "G",
+    "measureUnitColumn":"H",
+    "physicalVolumeColumn": "I",
+    "estimatedCostColumn":"J",
+    "yearColumn": "K",
+    "functionalGroupColumn": "F"
+
+  }
+}

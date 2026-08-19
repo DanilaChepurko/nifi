@@ -1,0 +1,48 @@
+{
+  "Форма сбора данных (ФСД): ЭЗ": {
+    "str1": {
+    "startRow": 9,
+      "analyticsColumn": "B",
+      "unitColumn": "C",
+      "value": {
+        "startColumn": "D",
+      "typeName": [
+        "Газ",
+        "Конденсат",
+        "Нефть",
+        "ПНГ"
+      ]
+    }
+    },
+    "str3":{
+      "startRow": 4,
+      "analyticsColumn": "B",
+      "unitColumn": "C",
+      "value": {
+        "startColumn": "D",
+        "typeName": [
+          "Газ",
+          "Конденсат",
+          "Нефть",
+          "ПНГ"
+        ]
+      }
+
+    },
+    "str4":{
+      "startRow": 3,
+      "analyticsColumn": "B",
+      "unitColumn": "C",
+      "value": {
+        "startColumn": "D",
+        "typeName": [
+          "Газ",
+          "Конденсат",
+          "Нефть",
+          "ПНГ"
+        ]
+      }
+
+    }
+  }
+}

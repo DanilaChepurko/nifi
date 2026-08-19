@@ -1,0 +1,13 @@
+{
+  "Форма сбора данных Оборудование": {
+    "startRow": 6,
+    "nameColumn":"B",
+    "termBuColumn": "C",
+    "termNuColumn":"D",
+    "depricationPremiumColumn": "E",
+    "termExpensesColumn":"F",
+    "commissioningColumn": "G"
+
+
+  }
+}

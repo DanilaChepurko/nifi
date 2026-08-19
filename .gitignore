@@ -1,0 +1,22 @@
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Maven
+target/
+*.class
+*.jar
+
+# Ваши папки (БЕЗ точек!)
+fas2-update/
+ver2Fsd/
+vrem/
+BackUp/
+
+# Логи и временные файлы
+*.log
+*.tmp
+surefire/
+surefire-reports/

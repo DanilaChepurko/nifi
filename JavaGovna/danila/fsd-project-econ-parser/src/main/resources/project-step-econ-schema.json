@@ -1,0 +1,18 @@
+{
+  "Форма сбора данных Инвестпрограмма": {
+    "startRow": 9,
+    "projectStepColumn": "P",
+    "investProgramColumn": "D",
+    "scenarioColumn": "E",
+    "constructionTypeColumn": "F",
+    "functionalGroupColumn": "G",
+    "priorityColumn": "H",
+    "projectStepDependencyColumn": "I",
+    "pirStartYearColumn": "J",
+    "pirEndYearColumn": "K",
+    "smrStartYearColumn": "L",
+    "smrEndYearColumn": "M",
+    "analyticName": "Капитальные вложения, млн руб.",
+    "valueColumn": "O"
+  }
+}

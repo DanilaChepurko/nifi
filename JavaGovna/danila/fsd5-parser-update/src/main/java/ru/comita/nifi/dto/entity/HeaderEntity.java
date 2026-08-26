@@ -14,6 +14,7 @@ public class HeaderEntity {
     private Integer year;
     private UUID versionUuid;
     private UUID fieldUuid;
+    private UUID poolUuid;
     private UUID versionPlanUuid;
     private UUID horizonUuid;
     private LocalDateTime modelDate;

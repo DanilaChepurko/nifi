@@ -76,7 +76,7 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             Map<String, String> projectStep = getDictionaryMap(connection, "project_step");
             Map<String, String> typeTime = getDictionaryMap(connection, "r_period_type");
             Map<String, String> fields = getDictionaryMap(connection, "field");
-            Map<String, String> ba = getDictionaryMap(connection, "long_name", "business_associate");
+            Map<String, String> pool = getDictionaryMap(connection, "name", "pool");
 
             
             List<Map<String, String>> headersResults = getResultMap(connection, "header_development");
@@ -94,7 +94,7 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             assertEquals(fields.get("Астраханское"), headerResult.get("field_uuid"));
             assertEquals(horizon.get("Астраханское.Карбон"), headerResult.get("horizon_uuid"));
             assertEquals("Газ+Конденсат", headerResult.get("fluid_type"));
-            assertEquals(ba.get("ООО \"Газпром добыча Астрахань\""), headerResult.get("business_associate_uuid"));
+            assertEquals(pool.get("Заполярное.Сеноман..ПК1"), headerResult.get("pool_uuid"));
 
             Map<String, String> headerMetaResult = headersMetaResults.get(0);
             assertEquals(headerResult.get("uuid"), headerMetaResult.get("header_uuid"));
@@ -112,9 +112,9 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             assertEquals(typeTime.get("quarter"), volSummaryResult.get("period_type_uuid"));
             assertEquals(projectStep.get("Реконструкция обвязки устья скважины газовой эксплуатационной № 263 УППГ-2"), volSummaryResult.get("project_step_uuid"));
             Map<String, BigDecimal> expectedByName = Map.of(
-                "Прирост максимальной суточной добычи газа, млн. м3/сут", BigDecimal.valueOf(1.0),
-                "Прирост максимальной суточной добычи нестабильного конденсата, тыс. т/сут", BigDecimal.valueOf(3.0)//,
-               // "Прирост максимальной суточной добычи стабильного конденсата, тыс. т/сут", BigDecimal.valueOf(0.0)
+                "Предотвращение снижения (прирост) максимальной суточной добычи газа, млн. м3/сут", BigDecimal.valueOf(1.0),
+                "Предотвращение снижения (прирост) максимальной суточной добычи нестабильного конденсата, тыс. т/сут", BigDecimal.valueOf(3.0)//,
+               // "Предотвращение снижения (прирост) максимальной суточной добычи стабильного конденсата, тыс. т/сут", BigDecimal.valueOf(0.0)
             );
             
             Map<String, BigDecimal> expectedByUuid = new HashMap<>();
@@ -135,7 +135,7 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             assertEquals(expectedByUuid, actualValues);
         }
     }
-    /*
+    
     @Test
     @SneakyThrows
     public void parseFSD5_3Test() {
@@ -154,7 +154,6 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             Map<String, String> projectStep = getDictionaryMap(connection, "project_step");
             Map<String, String> typeTime = getDictionaryMap(connection, "r_period_type");
             Map<String, String> fields = getDictionaryMap(connection, "field");
-            Map<String, String> ba = getDictionaryMap(connection, "long_name", "business_associate");
 
             
             List<Map<String, String>> headersResults = getResultMap(connection, "header_development");
@@ -166,12 +165,11 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
 
             Map<String, String> headerResult = headersResults.get(0);
             assertEquals(versions.get("Утвержденная"), headerResult.get("version_uuid"));
-            assertEquals(2025, Integer.valueOf(headerResult.get("year")));
+            assertEquals(2024, Integer.valueOf(headerResult.get("year")));
             assertEquals(scenarios.get("КПР"), headerResult.get("scenario"));
             assertEquals(fields.get("Астраханское"), headerResult.get("field_uuid"));
             assertEquals(horizon.get("Астраханское.Карбон"), headerResult.get("horizon_uuid"));
             assertEquals("Газ", headerResult.get("fluid_type"));
-            assertEquals(ba.get("ООО \"Газпром добыча Астрахань\""), headerResult.get("business_associate_uuid"));
 
             Map<String, String> headerMetaResult = headersMetaResults.get(0);
             assertEquals(headerResult.get("uuid"), headerMetaResult.get("header_uuid"));
@@ -190,8 +188,8 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             assertEquals(typeTime.get("year"), volSummaryResult.get("period_type_uuid"));
             
             Map<String, BigDecimal> expectedByName = Map.of(
-                "Валовый Газ, млн. м3", BigDecimal.valueOf(2.0),
-                "Товарный Газ, млн. м3", BigDecimal.valueOf(3.0)
+                "Предотвращение снижения (прирост) валовой годовой добычи Газ, млн. м3", BigDecimal.valueOf(1.0),
+                "Предотвращение снижения (прирост) товарной годовой добычи Газ, млн. м3", BigDecimal.valueOf(3.0)
             );
             
             Map<String, BigDecimal> expectedByUuid = new HashMap<>();
@@ -211,7 +209,7 @@ public class FSD5ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
             }
             assertEquals(expectedByUuid, actualValues);
         }
-    }*/
+    }
 
     // @Test
     // @SneakyThrows

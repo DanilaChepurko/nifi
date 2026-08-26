@@ -17,10 +17,10 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class FSDProjectEconExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
+public class FSDProjectStepEconExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
 
     private final FSDProjectEconExcelLoaderService fsdProjectEconExcelLoaderService;
-    private final FsdProjectEconConnectionManager connectionManager = new FsdProjectEconConnectionManager();
+    private final FsdProjectStepEconConnectionManager connectionManager = new FsdProjectStepEconConnectionManager();
     private final Map<SchemaName, String> schemaMap = new HashMap<>();
 
     @AfterEach
@@ -29,10 +29,10 @@ public class FSDProjectEconExcelLoaderServiceTest extends FSDExcelLoaderServiceT
     }
 
     @SneakyThrows
-    public FSDProjectEconExcelLoaderServiceTest() {
+    public FSDProjectStepEconExcelLoaderServiceTest() {
         try (InputStream projectEconSchemaIn = FSDProjectEconLoaderProcessor.class
                 .getClassLoader().getResourceAsStream(FSDProjectEconLoaderProcessor.PROJECT_ECON_SCHEMA_JSON);
-             InputStream headerSchemaIn = FSDProjectEconLoaderProcessor.class
+                InputStream headerSchemaIn = FSDProjectEconLoaderProcessor.class
                         .getClassLoader().getResourceAsStream(FSDProjectEconLoaderProcessor.HEADER_SCHEMA_JSON)) {
 
             assertNotNull(projectEconSchemaIn);
@@ -64,7 +64,7 @@ public class FSDProjectEconExcelLoaderServiceTest extends FSDExcelLoaderServiceT
             fsdProjectEconExcelLoaderService.loadExcelToTargetDatabase(fileName, schemaMap, fsdProjectEconIn);
 
             Map<String, String> analytic = getDictionaryMap(connection, "r_analytic");
-            Map<String, String> ba = getDictionaryMap(connection, "long_name", "business_associate");
+            Map<String, String> field = getDictionaryMap(connection, "name", "field");
             Map<String, String> project = getDictionaryMap(connection, "project_step");
             Map<String, String> scenario = getDictionaryMap(connection, "r_scenario");
 
@@ -75,7 +75,7 @@ public class FSDProjectEconExcelLoaderServiceTest extends FSDExcelLoaderServiceT
             assertEquals(1, headersResults.size());
 
             Map<String, String> headerResult = headersResults.get(0);
-            assertEquals(ba.get("ООО \"Газпром добыча Ноябрьск\""), headerResult.get("ba_uuid"));
+            assertEquals(field.get("Ямбургское"), headerResult.get("field_uuid"));
             assertEquals(2025, Integer.parseInt(headerResult.get("year")));
 
             Map<String, String> projectEconResult = projectEconResults.get(1);
@@ -90,6 +90,9 @@ public class FSDProjectEconExcelLoaderServiceTest extends FSDExcelLoaderServiceT
             assertEquals(2027, Integer.parseInt(projectEconResult.get("pir_end_year")));
             assertEquals(null, projectEconResult.get("project_dependency"));
             assertEquals("Не критическая", projectEconResult.get("priority"));
+            assertEquals("2025-2029", projectEconResult.get("complex_reconstruction_program"));
+            assertEquals("2027", projectEconResult.get("project_step_completion_year"));
+
             assertEquals("Скважины", projectEconResult.get("functional_group"));
             assertEquals("Новое строительство", projectEconResult.get("construction_type"));
             assertEquals(scenario.get("Сценарий 2"), projectEconResult.get("r_scenario"));

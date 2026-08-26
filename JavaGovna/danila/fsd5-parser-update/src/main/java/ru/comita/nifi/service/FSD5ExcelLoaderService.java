@@ -72,12 +72,14 @@ public class FSD5ExcelLoaderService extends FSDExcelLoaderService<FSD5ParserServ
                         "and version_plan_uuid %s " +
                         "and horizon_uuid %s " +
                         "and year %s " +
+                        "and pool_uuid %s " +
                         "and dop_scenario %s",
                 headerEntity.getScenario() == null ? "is null" : "= '" + headerEntity.getScenario() + "'",
                 headerEntity.getVersionUuid() == null ? "is null" : "= '" + headerEntity.getVersionUuid() + "'",
                 headerEntity.getVersionPlanUuid() == null ? "is null" : "= '" + headerEntity.getVersionPlanUuid() + "'",
                 headerEntity.getHorizonUuid() == null ? "is null" : "= '" + headerEntity.getHorizonUuid() + "'",
                 headerEntity.getYear() == null ? "is null" : "= '" + headerEntity.getYear() + "'",
+                headerEntity.getPoolUuid() == null ? "is null" : "= '" + headerEntity.getPoolUuid() + "'",
                 headerEntity.getDopScenario() == null ? "is null" : "= '" + headerEntity.getDopScenario() + "'");
         clearHeaderAndReferences(sql, "header_development", List.of("header_development_meta_inf",
                 "pden_vol_summary_development"));
@@ -87,7 +89,7 @@ public class FSD5ExcelLoaderService extends FSDExcelLoaderService<FSD5ParserServ
         connection.setAutoCommit(false);
         String sql = "INSERT INTO public.header_development(" +
                 "uuid, scenario, year, version_uuid, name, created_date, updated_date, horizon_uuid, model_date, version_plan_uuid, fluid_type, " +
-                "field_uuid, business_associate_uuid, dop_scenario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // ← 14 ?
+                "field_uuid, pool_uuid, dop_scenario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // ← 14 ?
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setObject(1, headerEntity.getUuid());
             preparedStatement.setObject(2, headerEntity.getScenario());
@@ -101,7 +103,7 @@ public class FSD5ExcelLoaderService extends FSDExcelLoaderService<FSD5ParserServ
             preparedStatement.setObject(10, headerEntity.getVersionPlanUuid());
             preparedStatement.setObject(11, headerEntity.getFluidType());
             preparedStatement.setObject(12, headerEntity.getFieldUuid());
-            preparedStatement.setObject(13, headerEntity.getBaUuid());
+            preparedStatement.setObject(13, headerEntity.getPoolUuid());
             preparedStatement.setObject(14, headerEntity.getDopScenario());
 
             preparedStatement.execute();

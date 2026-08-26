@@ -7,9 +7,9 @@ import org.apache.nifi.processor.Relationship;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class FSDProjectEconLoaderProcessorTest extends FSDLoaderProcessorTest {
+public class FSDProjectStepEconLoaderProcessorTest extends FSDLoaderProcessorTest {
     private final FSDProjectEconLoaderProcessor processor = new FSDProjectEconLoaderProcessor();
-    private final FsdProjectEconConnectionManager connectionManager = new FsdProjectEconConnectionManager();
+    private final FsdProjectStepEconConnectionManager connectionManager = new FsdProjectStepEconConnectionManager();
 
     @BeforeEach
     @SneakyThrows

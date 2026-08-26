@@ -12,16 +12,18 @@
         <module>fsd-parser-lib</module>
         <module>fsd-parser-test-lib</module>
 
-            <module>fsd5-parser-update</module>
+
+        <module>fsd-taxes-parser</module>
+        <module>fsd-project-econ-parser</module>
 <!--
        <module>fsd-project-econ-parser</module>
 
        <module>fsd-econ-operating-cost-parser</module>
 
       <module>fsd-equipment-in-use-parser</module>
-      -->
-      <module>fsd-taxes-parser</module>
 
+      <module>fsd-taxes-parser</module>
+        -->
     </modules>
 
     <properties>

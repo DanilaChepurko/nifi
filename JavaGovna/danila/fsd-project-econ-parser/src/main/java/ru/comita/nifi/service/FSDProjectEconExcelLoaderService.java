@@ -20,8 +20,8 @@ import java.util.UUID;
 public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDProjectEconParserService> {
 
     public FSDProjectEconExcelLoaderService(String sheetNum,
-            String formCell,
-            Connection connection) {
+                                            String formCell,
+                                            Connection connection) {
         super(sheetNum, formCell, connection);
     }
 
@@ -45,7 +45,7 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
 
             componentLog.info("Parsed header and project_step_econ enitites");
             clearPreviousRecords(headerEntity);
-            
+
             loadHeaderEntity(headerEntity);
             componentLog.info("Loaded header entity with UUID: " + headerEntity.getUuid());
 
@@ -63,33 +63,33 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
         connection.setAutoCommit(false);
 
         String condition =
-            "fsd_source = ? " +
-            "AND ba_uuid IS NOT DISTINCT FROM ? " +
-            "AND year IS NOT DISTINCT FROM ?";
+                "fsd_source = ? " +
+                        "AND year IS NOT DISTINCT FROM ? " +
+                        "AND field_uuid IS NOT DISTINCT FROM ? ";
 
         String deleteProjectEconSql =
-            "DELETE FROM public.project_step_econ " +
-            "WHERE header_uuid IN (" +
-                "SELECT uuid FROM public.header_econom WHERE " + condition +
-            ")";
+                "DELETE FROM public.project_step_econ " +
+                        "WHERE header_uuid IN (" +
+                        "SELECT uuid FROM public.header_econom WHERE " + condition +
+                        ")";
 
         String deleteHeaderEconomSql =
-            "DELETE FROM public.header_econom WHERE " + condition;
+                "DELETE FROM public.header_econom WHERE " + condition;
 
         try (PreparedStatement ps1 = connection.prepareStatement(deleteProjectEconSql);
-            PreparedStatement ps2 = connection.prepareStatement(deleteHeaderEconomSql)) {
+             PreparedStatement ps2 = connection.prepareStatement(deleteHeaderEconomSql)) {
 
             String fsdSource = headerEntity.getFsdSource();
-            UUID baUuid = headerEntity.getBaUuid();
             Integer year = headerEntity.getYear();
+            UUID fiedlUuid = headerEntity.getFieldUuid();
 
             ps1.setString(1, fsdSource);
-            ps1.setObject(2, baUuid);
-            ps1.setObject(3, year);
+            ps1.setObject(2, year);
+            ps1.setObject(3, fiedlUuid);
 
             ps2.setString(1, fsdSource);
-            ps2.setObject(2, baUuid);
-            ps2.setObject(3, year);
+            ps2.setObject(2, year);
+            ps2.setObject(3, fiedlUuid);
 
             ps1.execute();
             ps2.execute();
@@ -97,13 +97,14 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
             connection.commit();
         } catch (SQLException e) {
             componentLog.error(
-                "Ошибка при очистке записей: fsd_source='{}', ba={}, year={}",
-                headerEntity.getFsdSource(),
-                headerEntity.getBaUuid(),
-                headerEntity.getYear(),
-                e
+                    "Ошибка при очистке записей: fsd_source='{}', ba={}, year={}",
+                    headerEntity.getFsdSource(),
+                    headerEntity.getBaUuid(),
+                    headerEntity.getYear(),
+                    e
             );
             connection.rollback();
+            throw e;
         }
     }
 
@@ -115,22 +116,24 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
         connection.setAutoCommit(false);
 
         String insertSql = "INSERT INTO public.project_step_econ (" +
-            "uuid, " +
-            "header_uuid, " +
-            "project_step_uuid, " +
-            "invest_program, " +
-            "r_scenario, " +
-            "construction_type, " +
-            "functional_group, " +
-            "priority, " +
-            "project_dependency, " +
-            "pir_start_year, " +
-            "pir_end_year, " +
-            "smr_start_year, " +
-            "smr_end_year, " +
-            "analytic_uuid, " +
-            "value" +
-            ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "uuid, " +
+                "header_uuid, " +
+                "project_step_uuid, " +
+                "invest_program, " +
+                "r_scenario, " +
+                "construction_type, " +
+                "functional_group, " +
+                "priority, " +
+                "project_dependency, " +
+                "pir_start_year, " +
+                "pir_end_year, " +
+                "smr_start_year, " +
+                "smr_end_year, " +
+                "analytic_uuid, " +
+                "value," +
+                "project_step_completion_year," +
+                "complex_reconstruction_program" +
+                ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)";
 
         try (PreparedStatement ps = connection.prepareStatement(insertSql)) {
             for (ProjectStepEconEntity entity : projectEconEntities) {
@@ -138,17 +141,19 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
                 ps.setObject(2, entity.getHeaderUuid());
                 ps.setObject(3, entity.getProjectStepUuid());
                 ps.setString(4, entity.getInvestProgram());
-                ps.setObject(5, entity.getScenario()); 
+                ps.setObject(5, entity.getScenario());
                 ps.setString(6, entity.getConstructionType());
                 ps.setString(7, entity.getFunctionalGroup());
                 ps.setString(8, entity.getPriority());
-                ps.setObject(9, entity.getProjectStepDependency()); 
-                ps.setObject(10, entity.getPirStartYear());         
+                ps.setObject(9, entity.getProjectStepDependency());
+                ps.setObject(10, entity.getPirStartYear());
                 ps.setObject(11, entity.getPirEndYear());
                 ps.setObject(12, entity.getSmrStartYear());
                 ps.setObject(13, entity.getSmrEndYear());
                 ps.setObject(14, entity.getAnalyticUuid());
                 ps.setBigDecimal(15, entity.getValue());
+                ps.setObject(16, entity.getProjectStepCompletionYear());
+                ps.setObject(17, entity.getComplexReconstructionProgram());
 
                 ps.addBatch();
             }
@@ -166,28 +171,28 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
 
         connection.setAutoCommit(false);
         String sql = "INSERT INTO public.header_econom(" +
-            "uuid, " +
-            "fsd_source, " +
-            "scenario, " +
-            "ba_uuid, " +
-            "year, " +
-            "created_date" +
-            ") VALUES (?, ?, ?, ?, ?, ?)";
+                "uuid, " +
+                "fsd_source, " +
+                "scenario, " +
+                "year, " +
+                "created_date, " +
+                "field_uuid" +
+                ") VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setObject(1, headerEntity.getUuid());
-            ps.setString(2, headerEntity.getFsdSource());      
-            ps.setObject(3, headerEntity.getScenarioUuid());   
-            ps.setObject(4, headerEntity.getBaUuid());         
-            ps.setObject(5, headerEntity.getYear());           
-            ps.setObject(6, headerEntity.getCreatedDate());   
+            ps.setString(2, headerEntity.getFsdSource());
+            ps.setObject(3, headerEntity.getScenarioUuid());
+            ps.setObject(4, headerEntity.getYear());
+            ps.setObject(5, headerEntity.getCreatedDate());
+            ps.setObject(6, headerEntity.getFieldUuid());
 
             ps.execute();
-           // connection.commit();
+            connection.commit();
         } catch (SQLException e) {
             connection.rollback();
             throw e;
-        } 
         }
+    }
 
 }

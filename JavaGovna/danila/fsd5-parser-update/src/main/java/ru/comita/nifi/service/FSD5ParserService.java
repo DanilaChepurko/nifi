@@ -113,8 +113,8 @@ public class FSD5ParserService extends FSDParserService {
                     headerEntity.setVersionUuid(excelParserService
                             .getUUIDByCellAddress(row, "r_version", headerSchema.getVersion()));
                 }
-                if (FsdParserUtil.isInSameRow(row, headerSchema.getBa())) {
-                    headerEntity.setBaUuid(excelParserService.getUUIDByCellAddress(row, "business_associate", "long_name", headerSchema.getBa()));
+                if (FsdParserUtil.isInSameRow(row, headerSchema.getPool()) ) {
+                    headerEntity.setPoolUuid(excelParserService.getUUIDByCellAddress(row, "pool", "name", headerSchema.getPool()));
                 }
                 if (FsdParserUtil.isInSameRow(row, headerSchema.getFluidType())) {
                     headerEntity.setFluidType(excelParserService

@@ -9,4 +9,5 @@ public class HeaderEconomSchema {
     private String fsdSource;
     private String ba;
     private String year;
+    private String field;
 }

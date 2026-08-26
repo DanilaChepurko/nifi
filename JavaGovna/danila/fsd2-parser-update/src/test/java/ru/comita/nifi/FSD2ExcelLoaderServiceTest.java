@@ -107,17 +107,17 @@ public class FSD2ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
 
             AtomicReference<Integer> testPassed = new AtomicReference<>(0);
             volSummaryResults.forEach(volSummaryResult -> {
-                if (analytics.get("Запасы.Нефти.млн. т").equals(volSummaryResult.get("analytics_uuid"))) {
+                if (analytics.get("Запасы.Нефти. млн т").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("day"), 5, 2025, "2"));
                     assertEquals(pools.get("Астраханское.Карбон.залежь башкирского яруса C2b"), volSummaryResult.get("pool_uuid"));
                     testPassed.getAndSet(testPassed.get() + 1);
-                } else if (analytics.get("Начальная добыча.Нефти.млн. т").equals(volSummaryResult.get("analytics_uuid"))) {
+                } else if (analytics.get("Начальная добыча.Нефти. млн т").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertEquals(pools.get("Астраханское.Карбон.залежь башкирского яруса C2b"), volSummaryResult.get("pool_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("day"), 5, 2025, "3"));
                     testPassed.getAndSet(testPassed.get() + 1);
-                } else if (analytics.get("Добыча газа. сепарации.млрд. м3").equals(volSummaryResult.get("analytics_uuid"))) {
+                } else if (analytics.get("Добыча газа. сепарации. млрд м3").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertEquals(pools.get("Астраханское.Карбон.залежь башкирского яруса C2b"), volSummaryResult.get("pool_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("month"), 5, 2025, "2"));
@@ -177,12 +177,12 @@ public class FSD2ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
 
             AtomicReference<Integer> testPassed = new AtomicReference<>(0);
             volSummaryResults.forEach(volSummaryResult -> {
-                if (analytics.get("Начальная добыча.Нефти.млн. т").equals(volSummaryResult.get("analytics_uuid"))) {
+                if (analytics.get("Начальная добыча.Нефти. млн т").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("day"), 5, 2025, "4"));
                     assertEquals(facilitys.get("Астраханское.УППГ"), volSummaryResult.get("facility_uuid"));
                     testPassed.getAndSet(testPassed.get() + 1);
-                } else if (analytics.get("Добыча газа.сухой.млрд. м3").equals(volSummaryResult.get("analytics_uuid"))) {
+                } else if (analytics.get("Добыча газа.сухой. млрд м3").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertEquals(facilitys.get("Астраханское.УППГ"), volSummaryResult.get("facility_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("month"), 8, 2026, "6"));
@@ -244,12 +244,12 @@ public class FSD2ExcelLoaderServiceTest extends FSDExcelLoaderServiceTest {
 
             AtomicReference<Integer> registryTestPassed = new AtomicReference<>(0);
             volSummaryResults.forEach(volSummaryResult -> {
-                if (analytics.get("Начальная добыча.Стабильного конденсата.млн. т").equals(volSummaryResult.get("analytics_uuid"))) {
+                if (analytics.get("Начальная добыча.Стабильного конденсата. млн т").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("day"), 5, 2025, "4.5"));
                     assertEquals(horizons.get("Астраханское.Карбон"), headerResult.get("horizon_uuid"));
                     registryTestPassed.getAndSet(registryTestPassed.get() + 1);
-                } else if (analytics.get("Добыча газа.сухой.млрд. м3").equals(volSummaryResult.get("analytics_uuid"))) {
+                } else if (analytics.get("Добыча газа.сухой. млрд м3").equals(volSummaryResult.get("analytics_uuid"))) {
                     assertEquals(headerResult.get("uuid"), volSummaryResult.get("header_uuid"));
                     assertEquals(horizons.get("Астраханское.Карбон"), headerResult.get("horizon_uuid"));
                     assertTrue(assertTimeAndValue(volSummaryResult, typeTime.get("quarter"), 4, 2025, "0.42"));

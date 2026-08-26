@@ -15,6 +15,7 @@ public class HeaderSchema {
     private String horizon;
     private String year;
     private String ba;
+    private String pool;
     private String fluidType;
     private String author;
     private String fillInDate;

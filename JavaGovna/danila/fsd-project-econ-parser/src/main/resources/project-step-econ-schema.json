@@ -1,18 +1,20 @@
 {
   "Форма сбора данных Инвестпрограмма": {
-    "startRow": 9,
-    "projectStepColumn": "P",
+    "startRow": 11,
+    "projectStepColumn": "Q",
     "investProgramColumn": "D",
     "scenarioColumn": "E",
-    "constructionTypeColumn": "F",
-    "functionalGroupColumn": "G",
-    "priorityColumn": "H",
-    "projectStepDependencyColumn": "I",
-    "pirStartYearColumn": "J",
-    "pirEndYearColumn": "K",
-    "smrStartYearColumn": "L",
-    "smrEndYearColumn": "M",
+    "complexReconstructionProgramColumn":"F",
+    "constructionTypeColumn": "G",
+    "functionalGroupColumn": "H",
+    "priorityColumn": "I",
+    "projectStepDependencyColumn": "J",
+    "pirStartYearColumn": "K",
+    "pirEndYearColumn": "L",
+    "smrStartYearColumn": "M",
+    "smrEndYearColumn": "N",
+    "projectStepCompletionYearColumn":"O",
     "analyticName": "Капитальные вложения, млн руб.",
-    "valueColumn": "O"
+    "valueColumn": "P"
   }
 }

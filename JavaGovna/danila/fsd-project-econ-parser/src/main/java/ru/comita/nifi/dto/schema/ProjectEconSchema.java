@@ -12,6 +12,7 @@ public class ProjectEconSchema {
     private String constructionTypeColumn;
     private String functionalGroupColumn;
     private String priorityColumn;
+    private String complexReconstructionProgramColumn;
     private String projectStepDependencyColumn;
     private String pirStartYearColumn;
     private String pirEndYearColumn;
@@ -19,4 +20,5 @@ public class ProjectEconSchema {
     private String smrEndYearColumn;
     private String analyticName;
     private String valueColumn;
+    private String projectStepCompletionYearColumn;
 }

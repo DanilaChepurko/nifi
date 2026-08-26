@@ -1,23 +1,24 @@
 {
-  "Форма сбора данных (ФСД) 5: Приросты максимальной добычи.": {
+  "Форма сбора данных (ФСД) 5: Предотвращение снижения (прирост) максимальной суточной добычи.": {
     "version": "C5",
     "scenario": "C4",
     "horizon": "C9",
     "field": "C7",
     "year": "C3",
     "ba":"C6",
-    "fluidType": "C10",
+    "fluidType": "C11",
     "author": "E4",
+    "pool":"C10",
     "fillInDate": "E3",
-    "syncScenario": "C11",
-    "syncVersion": "C12",
-    "syncComparedScenario": "C13",
-    "syncComparedVersion": "C14",
-    "lastRow": 14,
+    "syncScenario": "C12",
+    "syncVersion": "C13",
+    "syncComparedScenario": "C14",
+    "syncComparedVersion": "C15",
+    "lastRow": 16,
     "dopScenario": "Приросты максимальной добычи"
   },
   
-  "Форма сбора данных (ФСД) 5: Эффекты.": {
+  "Форма сбора данных (ФСД) 5: Предотвращение снижения (прирост) годовой добычи": {
     "version": "C5",
     "scenario": "C4",
     "horizon": "C9",
@@ -31,7 +32,7 @@
     "syncVersion": "C12",
     "syncComparedScenario": "C13",
     "syncComparedVersion": "C14",
-    "lastRow": 14,
+    "lastRow": 15,
     "dopScenario": "Эффекты"
 
   }  

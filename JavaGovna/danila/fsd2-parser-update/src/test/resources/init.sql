@@ -159,23 +159,23 @@ create table if not exists public.recom
 
 
 INSERT INTO public.r_analytic (uuid, name)
-VALUES ('759238ae-d6d9-49f4-805f-f674aefdf600', 'Запасы.Нефти.млн. т');
+VALUES ('759238ae-d6d9-49f4-805f-f674aefdf600', 'Запасы.Нефти. млн т');
 
 INSERT INTO public.r_analytic (uuid, name)
-VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fd', 'Начальная добыча.Нефти.млн. т');
-
-
-INSERT INTO public.r_analytic (uuid, name)
-VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fe', 'Добыча газа. сепарации.млрд. м3');
+VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fd', 'Начальная добыча.Нефти. млн т');
 
 
 INSERT INTO public.r_analytic (uuid, name)
-VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fb', 'Добыча газа.сухой.млрд. м3');
+VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fe', 'Добыча газа. сепарации. млрд м3');
+
 
 INSERT INTO public.r_analytic (uuid, name)
-VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fa', 'Запасы.Сухого газа.млрд. м3');
+VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fb', 'Добыча газа.сухой. млрд м3');
+
 INSERT INTO public.r_analytic (uuid, name)
-VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fc', 'Начальная добыча.Стабильного конденсата.млн. т');
+VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fa', 'Запасы.Сухого газа. млрд м3');
+INSERT INTO public.r_analytic (uuid, name)
+VALUES ('759238ae-d6d9-49f4-805f-f674aefdf5fc', 'Начальная добыча.Стабильного конденсата. млн т');
 
 INSERT INTO public.facility (uuid, name, field_uuid, horizon_uuid)
 VALUES ('284adb90-7728-43ef-b672-c61a4a5183c6', 'Астраханское.УППГ', null, null);

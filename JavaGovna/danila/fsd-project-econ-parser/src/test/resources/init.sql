@@ -54,11 +54,13 @@ CREATE TABLE IF NOT EXISTS public.project_step_econ (
     construction_type VARCHAR(30) NOT NULL,
     functional_group TEXT NOT NULL,
     priority VARCHAR(30) NOT NULL,
+    complex_reconstruction_program TEXT NOT NULL,
     project_dependency UUID,
     pir_start_year INTEGER,
     pir_end_year INTEGER,
     smr_start_year INTEGER,
     smr_end_year INTEGER,
+    project_step_completion_year INTEGER,
     analytic_uuid UUID NOT NULL,
     value NUMERIC(34, 17) NOT NULL
 );
@@ -92,4 +94,38 @@ VALUES
     (
         'd8040181-156e-4956-a944-4841844004d1',
         'Капитальные вложения, млн руб.'
+    );
+
+create table if not exists public.field (
+    uuid uuid not null constraint field_pk primary key,
+    name varchar(255),
+    ba_uuid uuid,
+    area_uuid uuid,
+    type_uuid uuid,
+    licenses varchar(255),
+    esg boolean,
+    int integer
+);
+
+INSERT INTO
+    public.field (
+        uuid,
+        name,
+        ba_uuid,
+        area_uuid,
+        type_uuid,
+        licenses,
+        esg,
+        int
+    )
+VALUES
+    (
+        '3986ea1c-ac29-4cf7-8a82-5e12a1063b80',
+        'Ямбургское',
+        'f271eb01-0b47-45dd-843b-d05ee20dbe8c',
+        '1a0b5abb-473d-42d3-8434-43ab5862da30',
+        '20c668bf-e0de-4e41-897e-513db70be197',
+        'ШОМ006641НР 19.08.2022',
+        false,
+        null
     );

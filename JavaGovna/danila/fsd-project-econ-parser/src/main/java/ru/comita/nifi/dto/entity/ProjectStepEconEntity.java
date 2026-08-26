@@ -13,6 +13,7 @@ public class ProjectStepEconEntity {
     private UUID scenario;
     private String constructionType;
     private String functionalGroup;
+    private String complexReconstructionProgram;
     private String priority;
     private UUID projectStepDependency;
     private Integer pirStartYear;
@@ -20,5 +21,6 @@ public class ProjectStepEconEntity {
     private Integer smrStartYear;
     private Integer smrEndYear;
     private UUID analyticUuid;
+    private Integer projectStepCompletionYear;
     private BigDecimal value;
 }

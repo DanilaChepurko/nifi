@@ -47,7 +47,8 @@ public class Fsd5ConnectionManager extends ConnectionManager {
     "header_development",
     "header_development_meta_inf",
     "pden_vol_summary_development",
-    "project_event"
+    "project_event",
+    "pool"
 );
     }
 

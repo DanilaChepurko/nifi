@@ -13,6 +13,7 @@ import ru.comita.nifi.dto.schema.ProjectEconSchema;
 import ru.comita.nifi.dto.entity.HeaderEconomEntity;
 import ru.comita.nifi.dto.schema.HeaderEconomSchema;
 import static ru.comita.lib.util.FsdParserUtil.isInSameRow;
+import static ru.comita.lib.util.FsdParserUtil.parseStringToInt;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -100,7 +101,7 @@ public class FSDProjectEconParserService extends FSDParserService {
 
         String headerYear = headerEconom.getYear();
         if (isInSameRow(row, headerYear)) {
-            Integer year = tryParseInt(
+            Integer year = parseStringToInt(
                     excelParserService.getCellValueByAddress(row, headerYear));
             headerEconomEntity.setYear(year);
         }
@@ -122,18 +123,18 @@ public class FSDProjectEconParserService extends FSDParserService {
 
         String priority = excelParserService.getCellValueByAddress(row,projectEconSchema.getPriorityColumn());
         UUID projectDependencyUUID = excelParserService.getUUIDByCellAddress(row, "project_step","code", projectEconSchema.getProjectStepDependencyColumn());
-        Integer pirStartYear = tryParseInt(
+        Integer pirStartYear = parseStringToInt(
                 excelParserService.getCellValueByAddress(row, projectEconSchema.getPirStartYearColumn()));
-        Integer pirEndYear = tryParseInt(
+        Integer pirEndYear = parseStringToInt(
                 excelParserService.getCellValueByAddress(row, projectEconSchema.getPirEndYearColumn())
         );
-        Integer smrStartYear = tryParseInt(
+        Integer smrStartYear = parseStringToInt(
                 excelParserService.getCellValueByAddress(row,projectEconSchema.getSmrStartYearColumn())
         );
-        Integer smrEndYear = tryParseInt(
+        Integer smrEndYear = parseStringToInt(
                 excelParserService.getCellValueByAddress(row,projectEconSchema.getSmrEndYearColumn())
         );
-        Integer projectStepCompletionYear = tryParseInt(
+        Integer projectStepCompletionYear = parseStringToInt(
                 excelParserService.getCellValueByAddress(row,projectEconSchema.getProjectStepCompletionYearColumn())
         );
         BigDecimal value = excelParserService.getBigDecimalValue(row,
@@ -156,21 +157,35 @@ public class FSDProjectEconParserService extends FSDParserService {
                 .map(pair -> (String) pair[0])
                 .collect(Collectors.toList());
 
-        int totalCount = fields.length;
+
         int nullCount = nullFieldNames.size();
 
-        if (nullCount == totalCount) {
+        if (value == null   ) {
             return null;
         } else if (nullCount > 0) {
             throw new GroupedException("На строке " + (row.getRowNum() + 1) + " обнаружены некорректные значения: " + nullFieldNames);
         }
 
         projectEconEntity.setProjectStepUuid(projectUuid);
-        projectEconEntity.setScenario(scenario);
-        projectEconEntity.setConstructionType(constructionType.trim());
-        projectEconEntity.setFunctionalGroup(functionalGroup.trim());
-        projectEconEntity.setInvestProgram(investProgram.trim());
-        projectEconEntity.setPriority(priority.trim());
+        if (scenario != null) {
+            projectEconEntity.setScenario(scenario);
+        }
+        if (constructionType != null)
+        {
+            projectEconEntity.setConstructionType(constructionType.trim());
+        }
+        if (functionalGroup != null)
+        {
+            projectEconEntity.setFunctionalGroup(functionalGroup.trim());
+        }
+        if (investProgram != null)
+        {
+            projectEconEntity.setInvestProgram(investProgram.trim());
+        }
+        if (priority != null)
+        {
+            projectEconEntity.setPriority(priority.trim());
+        }
         projectEconEntity.setProjectStepDependency(projectDependencyUUID);
         projectEconEntity.setPirStartYear(pirStartYear);
         projectEconEntity.setPirEndYear(pirEndYear);

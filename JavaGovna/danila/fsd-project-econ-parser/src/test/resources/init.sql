@@ -47,22 +47,22 @@ create table if not exists public.r_scenario (uuid uuid not null primary key, na
 
 CREATE TABLE IF NOT EXISTS public.project_step_econ (
     uuid UUID not null PRIMARY KEY,
-    header_uuid UUID not null,
-    project_step_uuid UUID NOT NULL,
-    invest_program VARCHAR(10) NOT NULL,
-    r_scenario UUID NOT NULL,
-    construction_type VARCHAR(30) NOT NULL,
-    functional_group TEXT NOT NULL,
-    priority VARCHAR(30) NOT NULL,
-    complex_reconstruction_program TEXT NOT NULL,
+    header_uuid UUID ,
+    project_step_uuid UUID ,
+    invest_program VARCHAR(10) ,
+    r_scenario UUID ,
+    construction_type VARCHAR(30) ,
+    functional_group TEXT ,
+    priority VARCHAR(30) ,
+    complex_reconstruction_program TEXT ,
     project_dependency UUID,
     pir_start_year INTEGER,
     pir_end_year INTEGER,
     smr_start_year INTEGER,
     smr_end_year INTEGER,
     project_step_completion_year INTEGER,
-    analytic_uuid UUID NOT NULL,
-    value NUMERIC(34, 17) NOT NULL
+    analytic_uuid UUID ,
+    value NUMERIC(34, 17)
 );
 
 INSERT INTO

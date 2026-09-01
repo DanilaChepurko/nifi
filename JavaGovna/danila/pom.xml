@@ -22,7 +22,7 @@
 
       <module>fsd-equipment-in-use-parser</module>
 
-      <module>fsd-taxes-parser</module>
+      <module>fsd-tax   es-parser</module>
         -->
     </modules>
 

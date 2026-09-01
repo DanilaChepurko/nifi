@@ -50,7 +50,10 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
             componentLog.info("Loaded header entity with UUID: " + headerEntity.getUuid());
 
             loadProjectEconEntities(projectEconEntities);
+
             componentLog.info("Loaded project_econ entites: " + projectEconEntities.size());
+            componentLog.info("header uuid project_econ entites 1: " + projectEconEntities.get(0).getScenario());
+            componentLog.info("header uuid project_econ entites 2: " + projectEconEntities.get(1).getScenario());
         }
 
     }

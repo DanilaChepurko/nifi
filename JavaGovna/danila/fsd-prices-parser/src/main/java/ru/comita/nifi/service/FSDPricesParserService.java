@@ -21,6 +21,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import ru.comita.lib.util.FsdParserUtil;
+import static ru.comita.lib.util.FsdParserUtil.isInSameRow;
+import static ru.comita.lib.util.FsdParserUtil.parseStringToInt;
 
 public class FSDPricesParserService extends FSDParserService {
 
@@ -118,8 +121,15 @@ public class FSDPricesParserService extends FSDParserService {
                                 .getUUIDByValue("r_analytic", analytic));
 
                     } else {
-                        throw new ExcelParserException("Ошибка при парсинге параметра ",
+
+                        if (FsdParserUtil.isInSameRow(row, pricesSchema.getValueColumn())) {
+
+
+                            System.out.println(" Строка " + row);
+
+                            throw new ExcelParserException("Ошибка при парсинге параметра ",
                                 pricesSchema.getAnalyticColumn());
+                        }
                     }
 
                     BigDecimal value = excelParserService.getBigDecimalValue(row, pricesSchema.getValueColumn());
@@ -127,6 +137,7 @@ public class FSDPricesParserService extends FSDParserService {
                         pricesEntity.setValue(value);
                         pricesEntities.add(pricesEntity);
                     } else {
+
                         componentLog
                                 .warn("Не заполнено значение аналитики в строке " + (row.getRowNum() + 1) + analytic);
                         continue;

@@ -118,16 +118,18 @@ public class FSDMacroParserService extends FSDParserService {
                             macroEntity.setAnalyticUuid(excelParserService
                                     .getUUIDByValue("r_analytic", anlytic));
                         } else {
-                            throw new ExcelParserException("Не правельный параметр ",macroSchema.getAnalyticColumn());
+                            if (FsdParserUtil.isInSameRow(row, macroSchema.getValueColumn())) {
+                                throw new ExcelParserException("Не правельный параметр ", macroSchema.getAnalyticColumn());
+                            }
                         }
 
                         BigDecimal value= excelParserService.getBigDecimalValue(row,CellReference.convertColStringToIndex( macroSchema.getValueColumn()));
                         macroEntity.setValue(value);
 
                         macroEntity.setCreatedDate(LocalDateTime.now());
-
-                        macroEntities.add(macroEntity);
-
+                        if (value != null) {
+                            macroEntities.add(macroEntity);
+                        }
                 }
             }
             catch (GroupedException e) {

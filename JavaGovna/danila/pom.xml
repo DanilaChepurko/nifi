@@ -13,17 +13,20 @@
         <module>fsd-parser-test-lib</module>
 
 
-        <module>fsd-taxes-parser</module>
         <module>fsd-project-econ-parser</module>
-<!--
-       <module>fsd-project-econ-parser</module>
+        <module>fsd-econ-macro-parser-new</module>
+        <!--
+          <module>fsd-project-econ-parser</module>
+          <module>fsd-prices-parser</le>
 
-       <module>fsd-econ-operating-cost-parser</module>
+          <module>fsd-project-econ-parser</module>
 
-      <module>fsd-equipment-in-use-parser</module>
+          <module>fsd-econ-operating-cost-parser</module>
 
-      <module>fsd-tax   es-parser</module>
-        -->
+          <module>fsd-equipment-in-use-parser</module>
+
+          <module>fsd-taxes-parser</module>
+                -->
     </modules>
 
     <properties>

@@ -52,8 +52,16 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
             loadProjectEconEntities(projectEconEntities);
 
             componentLog.info("Loaded project_econ entites: " + projectEconEntities.size());
-            componentLog.info("header uuid project_econ entites 1: " + projectEconEntities.get(0).getScenario());
-            componentLog.info("header uuid project_econ entites 2: " + projectEconEntities.get(1).getScenario());
+            for (ProjectStepEconEntity entity : projectEconEntities)
+            {
+                componentLog.info("----------------");
+                componentLog.info("Loaded project_econ entite: " + entity.getUuid());
+                componentLog.info("Loaded project_econ entite: " + entity.getHeaderUuid());
+                componentLog.info("Loaded project_econ entite: " + entity.getValue());
+                componentLog.info("----------------");
+            }
+            //componentLog.info("header uuid project_econ entites 1: " + projectEconEntities.get(0).getScenario());
+            //componentLog.info("header uuid project_econ entites 2: " + projectEconEntities.get(1).getScenario());
         }
 
     }
@@ -143,11 +151,11 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
                 ps.setObject(1, entity.getUuid());
                 ps.setObject(2, entity.getHeaderUuid());
                 ps.setObject(3, entity.getProjectStepUuid());
-                ps.setString(4, entity.getInvestProgram());
+                ps.setObject(4, entity.getInvestProgram());
                 ps.setObject(5, entity.getScenario());
-                ps.setString(6, entity.getConstructionType());
-                ps.setString(7, entity.getFunctionalGroup());
-                ps.setString(8, entity.getPriority());
+                ps.setObject(6, entity.getConstructionType());
+                ps.setObject(7, entity.getFunctionalGroup());
+                ps.setObject(8, entity.getPriority());
                 ps.setObject(9, entity.getProjectStepDependency());
                 ps.setObject(10, entity.getPirStartYear());
                 ps.setObject(11, entity.getPirEndYear());
@@ -161,9 +169,10 @@ public class FSDProjectEconExcelLoaderService extends FSDExcelLoaderService<FSDP
                 ps.addBatch();
             }
             ps.executeBatch();
-            connection.commit();
+            //connection.commit();
         } catch (SQLException e) {
             connection.rollback();
+            throw e;
         }
     }
 
